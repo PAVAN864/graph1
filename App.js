@@ -1,0 +1,16 @@
+const express = require("express")
+const prodRoutes= require("./routes/product")
+const cors = require("cors")
+// const bodyParser = require("body-parser")
+const app = express()
+// app.use(bodyParser.json())
+app.use(cors())
+app.use(express.json())
+app.use('/api',prodRoutes)
+app.use((err,req,res,next)=>{
+    console.log(err.stack)
+    res.status(500).json({message:"intenal server error"})
+})
+app.listen(8000,()=>{
+    console.log("server is listening on port 8000")
+})

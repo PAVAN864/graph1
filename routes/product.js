@@ -1,0 +1,15 @@
+const express = require("express")
+const router = express.Router()
+const {getCRs,getProductGroup,getProductsbyProductGroupId,getProductToMainGroup,getGroupsByMainGroup,getOptionsByGroup,getCR, getDesc} = require("../controllers/product")
+
+router.get("/data",getProductGroup)
+router.get("/product/:pg_id",getProductsbyProductGroupId)
+router.get("/maingroups/:p_id",getProductToMainGroup)
+router.get("/groups/:mg_id",getGroupsByMainGroup)
+router.get("/options/:g_id",getOptionsByGroup)
+router.get("/options/compatibility_rule/:o_id",getCR)
+router.get("/options/compatibility_rules/:o_id",getCRs)
+router.get("/options/desc/:o_id",getDesc)
+// router.get("/options/compatibility_rule")
+// router.get("/products")
+module.exports = router
